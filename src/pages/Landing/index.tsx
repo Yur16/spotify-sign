@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Text } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 import facebookIcon from '../../assets/facebook.png';
 import googleIcon from '../../assets/google.png';
@@ -17,15 +18,27 @@ import {
 } from './styles';
 
 const Landing: React.FC = () => {
+  const { navigate } = useNavigation();
+
+  function handleNavigateToSignIn() {
+    navigate('SignIn');
+  }
+
+  function handleNavigateToSignUp() {
+    navigate('SignUp');
+  }
+
   return (
     <Container>
-        <MaterialCommunityIcons name="spotify" size={50} color="#fff" />
+        <MaterialCommunityIcons name="spotify" size={60} color="#fff" />
         
         <Content>
           <Title>Millions of songs. Free on Spotify.</Title>
 
-          <SignUpButton>
-            <Text style={{color: '#fff', fontWeight: 'bold'}}>SIGN UP FREE</Text>
+          <SignUpButton onPress={handleNavigateToSignUp} >
+            <Text style={{color: '#fff', fontFamily: 'Poppins_400Regular'}}>
+              SIGN UP FREE
+            </Text>
           </SignUpButton>
 
           <SocialSignButton>
@@ -38,7 +51,9 @@ const Landing: React.FC = () => {
             <SocialButtonText>CONTINUE WITH GOOGLE</SocialButtonText>
           </SocialSignButton>
           
-          <LoginRedirect>log in</LoginRedirect>
+          <TouchableOpacity onPress={handleNavigateToSignIn}>
+            <LoginRedirect>log in</LoginRedirect>
+          </TouchableOpacity>
         </Content>
       </Container>
   );

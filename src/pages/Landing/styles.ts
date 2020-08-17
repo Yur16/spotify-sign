@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { StyleSheet } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
@@ -18,10 +17,11 @@ export const Content = styled.View`
 `;
 export const Title = styled.Text`
   color: #fff;
+  font-family: Poppins_700Bold;
   font-size: 26px;
   margin-bottom: 30px;
 
-  max-width: 250px;
+  max-width: 300px;
 `;
 
 export const SignUpButton = styled(RectButton)`
@@ -39,8 +39,8 @@ export const SignUpButton = styled(RectButton)`
 
 export const SocialSignButton = styled.TouchableOpacity`
   color: #fff;
-  border-width: ${StyleSheet.hairlineWidth}px;
-  border-color: #eee;
+  border-width: 1px;
+  border-color: #414141;
   flex-direction: row;
   margin-top: 10px;
 
@@ -60,13 +60,14 @@ export const ButtonIcon = styled.Image`
 
 export const SocialButtonText = styled.Text`
   color: #fff;
+  font-family: Poppins_400Regular;
   font-size: 13px;
-  font-weight: bold;
   margin-left: 20px;
 `;
 
 export const LoginRedirect = styled.Text`
   color: #fff;
+  font-family: Poppins_400Regular;
   font-size: 13px;
   margin-top: 15px;
 
