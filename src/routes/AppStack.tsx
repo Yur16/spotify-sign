@@ -14,19 +14,19 @@ const AppStack: React.FC = () => {
     <NavigationContainer>
       <Navigator screenOptions={{
         headerStyle: {
-          backgroundColor: '#000'
+          backgroundColor: '#000',
         },
         headerTintColor: '#fff',
-        headerTitleAlign: 'center'
+        headerTitleAlign: 'center',
       }}>
         <Screen name="Landing" component={Landing} options={{
           headerShown: false,
         }} />
         <Screen name="SignIn" component={SignIn} options={{
-          title: 'create account',
+          title: 'Log in',
         }}/>
         <Screen name="SignUp" component={SignUp} options={{
-          title: 'Log in',
+          title: 'create account',
         }}/>
       </Navigator>
     </NavigationContainer>
