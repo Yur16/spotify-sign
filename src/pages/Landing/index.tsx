@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import * as Google from 'expo-google-app-auth';
 
 import facebookIcon from '../../assets/facebook.png';
 import googleIcon from '../../assets/google.png';
@@ -28,6 +29,17 @@ const Landing: React.FC = () => {
     navigate('SignUp');
   }
 
+  async function handleGoogleSignIn() {
+    const { type } = await Google.logInAsync({
+      iosClientId: `<IOS_CLIENT_ID>`,
+      androidClientId: `<ANDROID_CLIENT_ID>`,
+    });
+
+    if (type === 'success') {
+      console.log('Logado com sucesso');
+    }
+  }
+
   return (
     <Container>
         <MaterialCommunityIcons name="spotify" size={60} color="#fff" />
@@ -46,7 +58,7 @@ const Landing: React.FC = () => {
             <SocialButtonText>CONTINUE WITH FACEBOOK</SocialButtonText>
           </SocialSignButton>
 
-          <SocialSignButton>
+          <SocialSignButton onPress={handleGoogleSignIn} >
             <ButtonIcon source={googleIcon} />
             <SocialButtonText>CONTINUE WITH GOOGLE</SocialButtonText>
           </SocialSignButton>
